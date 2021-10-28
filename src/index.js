@@ -9,7 +9,7 @@ const reportPV = options => {
 	if (!defaultParams) {
 		defaultParams = opts.data.platf ? utils.defaultParams(opts.data.platf) : utils.defaultParams()
 	}
-	let params = Object.assign(defaultParams, opts.data)
+	let params = Object.assign({}, defaultParams, opts.data)
 	let data = {
 		prefix: opts.prefix,
 		data: params,
@@ -26,7 +26,7 @@ const reportEvent = options => {
 	if (!defaultParams) {
 		defaultParams = opts.data.platf ? utils.defaultParams(opts.data.platf) : utils.defaultParams()
 	}
-	let params = Object.assign(defaultParams, opts.data)
+	let params = Object.assign({}, defaultParams, opts.data)
 	let data = {
 		prefix: opts.prefix,
 		data: params,
