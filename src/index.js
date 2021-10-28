@@ -39,6 +39,26 @@ const reportEvent = options => {
 }
 
 /**
+ * @desc  启动报数
+ */
+const reportStartup = options => {
+	const opts = options || {}
+	if (!defaultParams) {
+		defaultParams = opts.data.platf ? utils.defaultParams(opts.data.platf) : utils.defaultParams()
+	}
+	let params = Object.assign({}, defaultParams, opts.data)
+	let data = {
+		prefix: opts.prefix,
+		data: params,
+		sdo_bfn: 'sdo_bfn_startup'
+	}
+	if (opts.callback) {
+		data.callback = opts.callback
+	}
+	sendEvent(data)
+}
+
+/**
  * @desc  发送请求
  */
 const sendEvent = options => {
@@ -73,5 +93,6 @@ const sendEvent = options => {
 
 module.exports = {
 	reportPV,
-	reportEvent
+	reportEvent,
+	reportStartup
 }
