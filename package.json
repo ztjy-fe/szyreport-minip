@@ -1,6 +1,6 @@
 {
   "name": "szyreport-minip",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "小程序报数工具",
   "main": "dist/szyreport-minip.min.js",
   "scripts": {
