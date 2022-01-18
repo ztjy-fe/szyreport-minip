@@ -39,6 +39,23 @@ const reportEvent = options => {
 }
 
 /**
+ * @desc  错误报数
+ */
+ const reportError = options => {
+	const opts = options || {}
+	if (!defaultParams) {
+		defaultParams = opts.data.platf ? utils.defaultParams(opts.data.platf) : utils.defaultParams()
+	}
+	let params = Object.assign({}, defaultParams, opts.data)
+	let data = {
+		prefix: opts.prefix,
+		data: params,
+		sdo_bfn: 'error'
+	}
+	sendEvent(data);
+}
+
+/**
  * @desc  启动报数
  */
 const reportStartup = options => {
@@ -93,6 +110,7 @@ const sendEvent = options => {
 
 module.exports = {
 	reportPV,
-	reportEvent,
+  reportEvent,
+  reportError,
 	reportStartup
 }
